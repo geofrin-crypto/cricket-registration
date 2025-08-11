@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cricket Ticket Booking</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+  <source src="cricket.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+
+  <!-- Navigation -->
+  <header class="sticky">
+    <nav class="navbar">
+      <div class="logo">🏏 BookMyCricket</div>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#matches">Matches</a></li>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Book Your Cricket Match Tickets</h1>
+    <p>Secure your seats for thrilling live cricket matches!</p>
+    <button class="animated-btn" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Book Now</button>
+  </section>
+
+  <!-- Matches Section -->
+  <section class="matches" id="matches">
+    <div class="card">
+      <h3>India vs Australia</h3>
+      <p>Date: 20th Sept, 2025<br>Location: Wankhede Stadium, Mumbai</p>
+      <button class="animated-btn" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Book Now</button>
+    </div>
+    <div class="card">
+      <h3>England vs Pakistan</h3>
+      <p>Date: 25th Sept, 2025<br>Location: Eden Gardens, Kolkata</p>
+      <button class="animated-btn" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Book Now</button>
+    </div>
+    <div class="card">
+      <h3>South Africa vs New Zealand</h3>
+      <p>Date: 30th Sept, 2025<br>Location: M. Chinnaswamy Stadium, Bangalore</p>
+      <button class="animated-btn" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Book Now</button>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="contact-form" id="booking">
+    <h2>Book Your Ticket</h2>
+    <form id="ticketForm">
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <select name="match" required>
+        <option value="">Select a Match</option>
+        <option value="India vs Australia">India vs Australia - Mumbai</option>
+        <option value="England vs Pakistan">England vs Pakistan - Kolkata</option>
+        <option value="South Africa vs New Zealand">South Africa vs New Zealand - Bangalore</option>
+      </select>
+      <input type="number" name="tickets" placeholder="Number of Tickets" min="1" max="10" required />
+      <button type="submit">Confirm Booking</button>
+    </form>
+    <div id="thankYouMessage"></div>
+  </section>
+
+  <script>
+    document.getElementById('ticketForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('thankYouMessage').textContent = "🎟️ Thank you! Your tickets have been booked.";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
